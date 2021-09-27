@@ -1,6 +1,8 @@
 package week2.board_basic.controller;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +14,8 @@ import week2.board_basic.service.PostingService;
 import java.util.List;
 
 @Controller
-public class PostController {
+@SpringBootTest
+public class ControllerTest {
     private final PostingService postingService;
 
     @Autowired
@@ -26,6 +29,7 @@ public class PostController {
     }
 
     @PostMapping("/posting/editorForm")
+    @Test
     public String getEdit(Model model, @ModelAttribute PostForm pf, String username, String password, String content) {
         model.addAttribute("username", pf.getUsername());
         model.addAttribute("password", pf.getPassword());
