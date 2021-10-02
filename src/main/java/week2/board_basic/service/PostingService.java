@@ -2,22 +2,23 @@ package week2.board_basic.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import week2.board_basic.controller.PostForm;
 import week2.board_basic.model.Post;
-import week2.board_basic.repository.PostRepository;
 
 @Service
 public class PostingService {
 
-    private final PostRepository postRepository;
+    private Post post = new Post();
 
     @Autowired
-    public PostingService(PostRepository postRepository) {
-        this.postRepository = postRepository;
+    public PostingService(PostForm postForm) {
+        post.setUsername(postForm.getUsername());
+        post.setPassword(postForm.getPassword());
+        post.setContent(postForm.getContent());
     }
 
-    public Long posting(Post post) {
-        postRepository.save(post);
-        return post.getId();
+    public Long posting(PostForm postFormImpl) {
+
     }
 
 

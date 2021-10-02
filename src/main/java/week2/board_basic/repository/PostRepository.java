@@ -1,14 +1,13 @@
 package week2.board_basic.repository;
 
+import org.springframework.data.repository.CrudRepository;
 import week2.board_basic.model.Post;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface PostRepository {
-    Post save(Post post);
-    Optional<Post> findById(Long id);
-    Optional<Post> findByName(String username);
-//    Optional<Post> findByContent(String content);
-    List<Post> findAll();
+public interface PostRepository extends CrudRepository<Post, Long> {
+    List<Post> findByUsername(String username);
+
+    List<Post> findByContent(String content);
 }

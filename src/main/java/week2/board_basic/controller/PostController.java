@@ -6,10 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import week2.board_basic.model.Post;
 import week2.board_basic.service.PostingService;
-
-import java.util.List;
 
 @Controller
 public class PostController {
@@ -34,12 +31,7 @@ public class PostController {
         return "posting/postList";
     }
 
-//    @GetMapping("/members")
-//    public String list(Model model) {
-//        List<Post> members = postingService.;
-//        model.addAttribute("members", members);
-//        return "members/memberList";
-//    }
 
 
 }
+

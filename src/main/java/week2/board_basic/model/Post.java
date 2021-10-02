@@ -1,11 +1,16 @@
 package week2.board_basic.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Getter
+@Setter
 public class Post {
 
     @Id
@@ -16,35 +21,16 @@ public class Post {
     private String password;
     private String content;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
+    public Post(String username, String password, String content) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "id = %d, username = '%s', password = '%s', content = '%s'", id, username, password, content
+        );
     }
 }
