@@ -1,36 +1,26 @@
 package week2.board_basic.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-@Getter
-@Setter
 public class Post {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Entity(name = "PostObject")
+    public static class PostObject {
 
-    private String username;
-    private String password;
-    private String content;
+        @Id
+        @GeneratedValue
+        private Integer id;
 
-    public Post(String username, String password, String content) {
-        this.username = username;
-        this.password = password;
-        this.content = content;
-    }
+        @Column
+        private String username;
 
-    @Override
-    public String toString() {
-        return String.format(
-                "id = %d, username = '%s', password = '%s', content = '%s'", id, username, password, content
-        );
+        @Column
+        private String password;
+
+        @Column
+        private String content;
     }
 }
