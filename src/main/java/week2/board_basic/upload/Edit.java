@@ -1,8 +1,23 @@
 package week2.board_basic.upload;
 
-public interface Edit {
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
-    public String loadEditor();
+@Controller
+public class Edit {
 
-    public String submitPost();
+    @GetMapping("/formEditor")
+    public String loadEditor(Model model) {
+        model.addAttribute("pf", new PostForm());
+        return "posting/formEditor";
+    }
+
+
+    @PostMapping("/")
+    public String submitPost() {
+        return "posting/succeed";
+    }
 }

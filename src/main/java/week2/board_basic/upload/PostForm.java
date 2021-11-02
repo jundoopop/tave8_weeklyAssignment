@@ -2,6 +2,7 @@ package week2.board_basic.upload;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 public class PostForm {
     private Integer id;

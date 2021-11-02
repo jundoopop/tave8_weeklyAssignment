@@ -1,9 +1,6 @@
 package week2.board_basic.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 public class Post {
 
@@ -11,7 +8,7 @@ public class Post {
     public static class PostObject {
 
         @Id
-        @GeneratedValue
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
 
         @Column
